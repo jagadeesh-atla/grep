@@ -1,0 +1,30 @@
+The ape was at the index
+(ape[^ ]?)
+I picked the pickle
+(pick([^ ]+)?)
+Cat rat mat fat pat
+([crmfp]at)
+Cat rat mat fat pat
+[C-Fc-f]at
+Cat rat mat fat pat
+[^Cr]at
+Cat rat mat fat pat
+[Cr]at
+F.B.I. I.R.S. CIA
+([^ ]\..\..\.)
+This is a\n multiline string\n that has many lines
+\\n
+12345
+\d
+123 12345 123456 1234567
+\d{5,7}
+412-555-1212
+\w{3}-\w{3}-\w{4}
+Toshio Muramatsu
+\w{2,20}\s\w{2,20}
+a as ape bug
+a[a-z]+
+db@aol.com m@.com @apple.com db@.com
+[\w._%+-]{1,20}@[\w.-]{2,20}.[A-Za-z]{2,3}
+\wImhere
+\\w[[:alpha:]]+

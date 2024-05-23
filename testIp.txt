@@ -1,0 +1,4 @@
+/etc/ppp/options:# ms-wins 192.168.1.50
+/etc/ppp/options:# ms-wins 192.168.1.51
+/etc/NetworkManager/system-connections/Wired connection 1:addresses1=192.168.1.5;24;192.168.1.2;
+jh hjkk kbk  hghjgh khjhuypyp
