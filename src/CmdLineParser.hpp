@@ -13,6 +13,7 @@
 #define BOYERMOORE_IMP_
 #include "BoyerMoore.hpp"
 #include "Color.hpp"
+#include "re/Regex.hpp"
 
 class CommandLineParser {
  public:
@@ -212,17 +213,22 @@ void CommandLineParser::processStream(std::istream& in,
       matches = bm.findAllWithSize(line);
       is_match = !matches.empty();
     } else if (regex_flag) {
-      std::regex_constants::syntax_option_type syntax_options =
-          std::regex_constants::ECMAScript;
-      if (ignoreCase_flag) {
-        syntax_options |= std::regex_constants::icase;
-      }
-      std::regex re(pattern, syntax_options);
-      for (std::sregex_iterator it(line.begin(), line.end(), re), end;
-           it != end; ++it) {
-        matches[it->position()] = it->length();
-      }
-      is_match = regex_search(line, re);
+      // TODO: Need to implement case insensitive matching
+      Regex* r = new Regex(pattern);
+      r->compile();
+      matches = r->matchAll(line);
+      is_match = !matches.empty();
+      // std::regex_constants::syntax_option_type syntax_options =
+      //     std::regex_constants::ECMAScript;
+      // if (ignoreCase_flag) {
+      //   syntax_options |= std::regex_constants::icase;
+      // }
+      // std::regex re(pattern, syntax_options);
+      // for (std::sregex_iterator it(line.begin(), line.end(), re), end;
+      //      it != end; ++it) {
+      //   matches[it->position()] = it->length();
+      // }
+      // is_match = regex_search(line, re);
     }
 
     if (invertMatch_flag) {
